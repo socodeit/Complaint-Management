@@ -18,6 +18,11 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 var dbUrl = config.dbUrl+'test';
+if(process.env.OPENSHIFT_MONGODB_DB_URL) {
+    dbUrl = process.env.OPENSHIFT_MONGODB_DB_URL +
+        process.env.OPENSHIFT_APP_NAME;
+}
+console.log("Connecting to "+dbUrl);
 mongoose.connect(dbUrl)
     .then(() => {
     console.log("Successfully connected to the database");
