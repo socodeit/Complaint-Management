@@ -3,5 +3,6 @@ module.exports = {
     url:'http://iitd-nen200.1d35.starter-us-east-1.openshiftapps.com',
     modifyUrl:'/resolveComplaint',
     resolvePassword:'karakoram@1',
+    host: process.env.IITD_PORT_8080_TCP_ADDR || '127.0.0.1',
     port: process.env.IITD_SERVICE_PORT_WEB || 3000
 }

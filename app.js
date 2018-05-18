@@ -32,9 +32,8 @@ mongoose.connect(dbUrl)
     console.log('Could not connect to the database. Exiting now...');
 process.exit();
 });
-var url = process.env.IITD_PORT_8080_TCP_ADDR || '127.0.0.1';
-app.listen(config.port,process.env.,function(){
-    console.log("Server is listening "+url+':'+config.port);
+app.listen(config.port,config.host,function(){
+    console.log("Server is listening "+config.host+':'+config.port);
 });
 
 var routes = require('./routes/complaintRoutes');
