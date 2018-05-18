@@ -20,7 +20,7 @@ mongoose.Promise = global.Promise;
 var dbUrl = config.dbUrl+'test';
 if(process.env.MONGODB_USER) {
     console.log("I am here.")
-    dbUrl = 'tcp://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+process.env.MONGODB_SERVICE_HOST+':'+process.env.MONGODB_SERVICE_PORT+'/'+process.env.MONGODB_DATABASE;
+    dbUrl = 'mongodb://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+process.env.MONGODB_SERVICE_HOST+':'+process.env.MONGODB_SERVICE_PORT+'/'+process.env.MONGODB_DATABASE;
 }
 
 console.log('Config dbUrl:'+config.dbUrl);
