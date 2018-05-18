@@ -18,12 +18,11 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 var dbUrl = config.dbUrl+'test';
-if(process.env.OPENSHIFT_MONGODB_DB_URL) {
-    dbUrl = process.env.OPENSHIFT_MONGODB_DB_URL +
-        process.env.OPENSHIFT_APP_NAME;
+if(process.env.MONGODB_USER) {
+    console.log("I am here.")
+    dbUrl = 'tcp://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+process.env.MONGODB_SERVICE_HOST+':'+process.env.MONGODB_SERVICE_PORT+'/'+process.env.MONGODB_DATABASE;
 }
-console.log(process.env);
-console.log(process.env.process.env.OPENSHIFT_NODEJS_PORT);
+
 console.log('Config dbUrl:'+config.dbUrl);
 console.log('Connecting to '+dbUrl);
 mongoose.connect(dbUrl)
