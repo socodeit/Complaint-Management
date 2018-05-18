@@ -22,6 +22,8 @@ if(process.env.OPENSHIFT_MONGODB_DB_URL) {
     dbUrl = process.env.OPENSHIFT_MONGODB_DB_URL +
         process.env.OPENSHIFT_APP_NAME;
 }
+console.log(process.env);
+console.log(process.env.process.env.OPENSHIFT_NODEJS_PORT);
 console.log('Config dbUrl:'+config.dbUrl);
 console.log('Connecting to '+dbUrl);
 mongoose.connect(dbUrl)
