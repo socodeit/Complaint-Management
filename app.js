@@ -32,7 +32,7 @@ mongoose.connect(dbUrl)
     console.log('Could not connect to the database. Exiting now...');
 process.exit();
 });
-app.listen(config.port,function(){
+app.listen(config.port,'0.0.0.0',function(){
     console.log("Server is listening "+config.host+':'+config.port);
 });
 
